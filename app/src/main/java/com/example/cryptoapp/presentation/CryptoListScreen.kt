@@ -1,5 +1,6 @@
 package com.example.cryptoapp.presentation
 
+import android.icu.text.DecimalFormat
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -123,9 +124,8 @@ fun CryptoItem(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = "$position "+ crypto.name)
-        Text(text = crypto.changePercent24Hr, color = textColor)
-        Text(text = "$ ${crypto.priceUsd}", color = textColor)
+        Text(text = "$position. "+ crypto.name)
+        Text(text = String.format("%.2f", crypto.changePercent24Hr.toFloat()), color = textColor)
+        Text(text = "$ ${String.format("%.2f", crypto.priceUsd.toFloat())}", color = textColor)
     }
-
 }

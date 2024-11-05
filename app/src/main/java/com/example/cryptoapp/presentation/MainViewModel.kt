@@ -30,6 +30,10 @@ class MainViewModel(
         _uiState.value.coins = _uiState.value.coins.filter {
             it.name.lowercase().contains(searchTerm.lowercase())
         }
+
+        if (searchTerm.isEmpty()) {
+            _uiState.value.coins = _uiState.value.coins
+        }
     }
 
 
